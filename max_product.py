@@ -46,6 +46,9 @@ def main():
     input_list = args.nums
     length = len(input_list)
 
+    if length < 3:
+    	raise Exception("This script only works for list with more than three elements")
+
     for i in range(length//2 - 1, -1, -1):
     	heapify(input_list, length, i)
 

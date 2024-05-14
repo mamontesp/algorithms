@@ -6,9 +6,9 @@
 ## 72 (4*3*6)
 
 from typing import List
+import argparse
 
 def heapify(input_list: List, length: int, i: int):
-	print('heap')
 	largest = i
 	left_tree_index =  2 * i + 1
 	right_tree_index =  2 * i + 2
@@ -38,6 +38,24 @@ def get_max_product(heap, multiples: int = 3) -> int:
 	return product
 
 
+def main():
+    parser = argparse.ArgumentParser(description="Find the maximum product of any three integers from a list")
+    parser.add_argument('nums', nargs='+', type=int, help="List of integers")
+    args = parser.parse_args()
+
+    input_list = args.nums
+    length = len(input_list)
+
+    for i in range(length//2 - 1, -1, -1):
+    	heapify(input_list, length, i)
+
+    result = get_max_product(input_list)
+    print(f"The maximum product of any three integers in the list is: {result}")
+
+
+if __name__ == '__main__':
+	main()
+"""
 if __name__ == '__main__':
 	input_list = [2, 4, 1, 3, -5, 6]
 	length = len(input_list)
@@ -52,11 +70,11 @@ if __name__ == '__main__':
 	else:
 		print(f'Keep trying {max_product}')
 	##testing
-	"""
+
 	expected_heap = [6, 4, 2, 3, -5, 1]
 	if input_list == expected_heap:
 		print(True)
 	else:
 		print(False)
-	"""
+"""
 

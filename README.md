@@ -26,6 +26,12 @@ cd cassidoo_newsletter_may_13_2024
 python max_product 1 2 3 5 6 3
 ```
 
+# Author's notes
+The approach to this problem depends on the situation. To make this interesting, let's think in a large list and a variable number of integers that need to be multiplied:
+
+- Sorted list gives time complexity of O(1), only the three first numbers and the two last need to be accessed. But what if this list changes frequently, every write to the sorted list is O(n)
+- Heap gives time complexity of O(n), as there are a number of mins to find, each search requires a new heapify process.
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)

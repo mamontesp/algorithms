@@ -18,7 +18,6 @@ def get_vowels_number(name: str) -> Tuple[int, str]:
     """
     pattern = r'[aeiouAEIOU]'
     vowels = list(re.findall(pattern, name))
-    print(f'vowels {vowels}')
     return (6 - len(vowels), name)
 
 def sort_vowels(names: List) -> List[str]:
@@ -53,7 +52,7 @@ def main():
 
     input_names = args.names
     sorted_list = sort_vowels(input_names)
-    print (f'sorted_list {sorted_list}')
+    print (sorted_list)
 
 if __name__ == '__main__':
     main()

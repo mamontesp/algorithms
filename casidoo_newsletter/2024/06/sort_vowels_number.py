@@ -4,6 +4,7 @@
 """
 from typing import List, Tuple
 import re
+import argparse
 
 def get_vowels_number(name: str) -> Tuple[int, str]:
     """Get the number of vowels in a string
@@ -33,10 +34,26 @@ def sort_vowels(names: List) -> List[str]:
     names.sort(key = get_vowels_number)
     return names
 
-if __name__ == '__main__':
+def test():
+    """Test function for sort_vowels method
+    """
     example_list = ["Goku", "Vegeta", "Piccolo", "Gohan"]
     expected_sorted_list =  ["Piccolo", "Vegeta", "Gohan", "Goku"]
 
     sorted_list = sort_vowels(example_list)
     print (f'sorted_list {sorted_list}')
     assert expected_sorted_list == sorted_list 
+
+def main():
+    """Gets a list of names and returns it sorted by the number of vowels in each name in descending order
+    """
+    parser = argparse.ArgumentParser(description="Sort a list by the number of vowels in each name in descending order")
+    parser.add_argument('names', nargs='+', type=str, help="List of names")
+    args = parser.parse_args()
+
+    input_names = args.names
+    sorted_list = sort_vowels(input_names)
+    print (f'sorted_list {sorted_list}')
+
+if __name__ == '__main__':
+    main()
